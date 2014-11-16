@@ -20,6 +20,7 @@ Plugin 'scrooloose/nerdtree'      " Allows you to explore your filesystem and to
 Plugin 'Shougo/neocomplete.vim'   " Provides keyword completion system by maintaining a cache of keywords in the current buffer.
 Plugin 'Shougo/unite.vim'         " Can search and display information from arbitrary sources like files, buffers, recently used files or registers.
 Plugin 'tpope/vim-dispatch'       " Asynchronous build and test dispatcher. (I don't know what this does)
+Plugin 'tpope/vim-eunuch'         " Vim sugar for the UNIX shell commands that need it the most. 
 Plugin 'tpope/vim-fugitive'       " May very well be the best Git wrapper of all time.
 Plugin 'tpope/vim-surround'       " Quoting/parenthesizing made simple (just use 'ct' for stuff)
 Plugin 'tpope/vim-unimpaired'     " Pairs of handy bracket mappings.
@@ -75,28 +76,27 @@ set undofile
 " -----------------
 
 " My leader is the default leader key: '\'
-nnoremap <leader>\ :nohl<CR>
-nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-map <leader>sp :setlocal spell! spelllang=en_us<CR>
+nmap <leader>\ :nohl<CR>
+nmap <leader>sp :setlocal spell! spelllang=en_us<CR>
 
 " Maps gg and G to fix nostartofline 
-vnoremap gg gg0
-vnoremap G G$
-nnoremap gg gg0
-nnoremap G G$
+nmap gg gg0
+nmap G G$
+xmap gg gg0
+xmap G G$
 
-inoremap jj <Esc> 
-inoremap jk <Esc> 
+imap jj <Esc> 
+imap jk <Esc> 
 
 " Enables ctrl+c to sysclipboard in visual mode*need " +xterm-clipboard,vimgtk(Linux)
-map <C-c> "+y<CR>
+"map <C-c> "+y<CR>
 
 " Shift lines up or down ~i
-noremap <C-j> ddp
-noremap <C-k> ddkkp
+nmap <C-j> ddp
+nmap <C-k> ddkkp
 
 " For when syntax highlighting/colorscheme dies because a file is too long.
-nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
+nmap U :syntax sync fromstart<cr>:redraw!<cr>
 
 " Section: Autocommands
 " ---------------------
@@ -132,7 +132,7 @@ let NERDTreeShowHidden=1      " Show hidden files in the tree
 let NERDTreeQuitOnOpen=1      " Close nerd tree when I've opened a file
 let NERDTreeShowBookmarks=1
 let NERDTreeShowLineNumbers=1   
-noremap <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
 
 " OmniSharp
 
