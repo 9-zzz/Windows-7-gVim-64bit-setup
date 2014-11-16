@@ -1,5 +1,6 @@
 :" Took out all gui tweaks from my .vimrc and placed them hear as per vim
 " startup guidelines.
+"put =&guifont " Insert the current font setting into the buffer
 
 " For Windows gVim GUI initializations. Probably should put all gui stuff in a .gvimrc
 au GUIEnter * simalt ~x     " Fullscreen at start
@@ -7,8 +8,8 @@ set guioptions-=m           " Remove menu bar
 set guioptions-=T           " Toolbar
 set guioptions-=r           " Remove right-hand scroll bar
 set guioptions-=L           " Remove left-hand scroll bar
+set guifont=Sauce_Code_Powerline:h8:cANSI
 "set guifont=Andale_Mono:h8
-set guifont=Source_Code_Pro_Medium:h8:cANSI
 
 " Sets bg color to terminal
 hi Normal ctermbg=None

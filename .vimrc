@@ -1,4 +1,4 @@
-" This vimrc is mainly for Windows and gVim7.4 64-bit compiled with python+lua for C# & Unity Game Engine scripting.
+" This vimrc is mainly for Windows and gVim7.4 64-bit compiled with python + lua for C# & Unity Game Engine scripting.
 " GOAL: OmniSharp + Neocomplete for nice Auto completion.
 
 source $VIMRUNTIME/mswin.vim " For windows Ctrl + V copy paste into Vim, I've edited mswin.vim a bit too for normal visual block editing.
@@ -64,9 +64,9 @@ set softtabstop=2       " Number of spaces that a <Tab> counts for while perform
 set nostartofline       " Stop certain movements from always going to the 1st character of a line, affected gg and G
 set ttimeoutlen=50      " Make Esc work faster, the time in milliseconds that is waited for a key code or mapped key sequence to complete
 set encoding=utf-8      " The encoding displayed.
-set fileencoding=utf-8  " The encoding written to file.kk
-set notimeout ttimeout  " Quickly time out on keycodes not on mappings
-
+set fileencoding=utf-8  " The encoding written to file
+"set notimeout ttimeout " Quickly time out on keycodes not on mappings (Not sure if I want this) 
+"
 set backspace=indent,eol,start  " Makes backspace work
 
 " Undo with as many levels as you like stored into file to keep undos across sessions
@@ -81,14 +81,15 @@ set undofile
 "  after that, `nmap s a` and `nnoremap s a` will do different things
 "  the first will map s to <esc> and the second will map s to the original function of a (insert left of cursor)
 
-" Default leader key: '\'
+" The default leader key: '\', mine is set to the Space Bar
 let mapleader = "\<Space>"
-nmap <Leader><Leader> V
-nmap <Leader>\ :nohl<CR>
-nmap <Leader>sp :setlocal spell! spelllang=en_us<CR>
+nnoremap <Leader><Leader> v
+nnoremap <Leader>\ :nohl<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>x :x<CR>
-"nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>s :so %<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>sp :setlocal spell! spelllang=en_us<CR>
 
 " Automatically jump to end of text you pasted: I can paste multiple lines multiple times with simple ppppp.
 vnoremap <silent> y y`]
@@ -96,27 +97,25 @@ vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
 " Maps gg and G to fix nostartofline 
-nmap gg gg0
-nmap G G$
-xmap gg gg0
-xmap G G$
+nnoremap gg gg0
+nnoremap G G$
+xnoremap gg gg0
+xnoremap G G$
 
-imap jk <Esc> 
+inoremap jk <Esc>
+nnoremap <C-i> :vs<CR>
 
-" Enables ctrl+c to sysclipboard in visual mode*need " +xterm-clipboard,vimgtk(Linux)
-"map <C-c> "+y<CR>
-
-" Shift lines up or down ~i
-nmap <C-j> ddp
-nmap <C-k> ddkkp
+" Shift lines up or down
+noremap <C-j> ddp
+noremap <C-k> ddkkp
 
 " For when syntax highlighting/colorscheme dies because a file is too long.
-nmap U :syntax sync fromstart<cr>:redraw!<cr>
+nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
 
 " Section: Autocommands
 " ---------------------
 
-" Spooky Skeletons
+" Skeletons
 autocmd BufNewFile *.c 0r ~/.vim/skeleton.c | call cursor(6,0)
 autocmd BufNewFile *.java 0r ~/.vim/skeleton.java | call cursor(1,14)
 autocmd BufNewFile *.py 0r ~/.vim/skeleton.py| call cursor(2,0)
@@ -152,7 +151,6 @@ let NERDTreeShowHidden=1      " Show hidden files in the tree
 let NERDTreeQuitOnOpen=1      " Close nerd tree when I've opened a file
 let NERDTreeShowBookmarks=1
 let NERDTreeShowLineNumbers=1   
-nmap <Leader>n :NERDTreeToggle<CR>
 
 " OmniSharp
 
