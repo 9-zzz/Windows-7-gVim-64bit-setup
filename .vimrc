@@ -32,7 +32,7 @@ colorscheme molokai " set t_Co=256 sets terminal to use 256 colors apparently ba
 " (See .gvimrc for all Gui and small color tweaks.)
 " (Then Vim reads the _viminfo file)
 
-" Section: Options
+" Section: Options (Yes, I did order them by length... I have a problem...)
 " ----------------
 
 syntax on               " Enable syntax highlighting
@@ -67,7 +67,7 @@ set notimeout ttimeout  " Quickly time out on keycodes not on mappings
 
 set backspace=indent,eol,start  " Makes backspace work
 
-" Persistent undo
+" Undo with as many levels as you like stored into file to keep undos across sessions
 set undodir=C:\Users\Shahan\vim\vimfiles\undodir
 set undofile
 
@@ -87,11 +87,6 @@ nnoremap G G$
 
 inoremap jj <Esc> 
 inoremap jk <Esc> 
-
-" Autocomplete curly braces (probably not necessary)
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {}     {}
 
 " Enables ctrl+c to sysclipboard in visual mode*need " +xterm-clipboard,vimgtk(Linux)
 map <C-c> "+y<CR>
