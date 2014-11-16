@@ -12,17 +12,17 @@ let path='~/vim/vimfiles/bundle'
 filetype off " Required.
 
 call vundle#begin(path)
-Plugin 'bling/vim-airline'        " Cool      
-Plugin 'gmarik/Vundle.vim'        " Plugin Manager
-Plugin 'OmniSharp/omnisharp-vim'  " What
-Plugin 'scrooloose/syntastic'     " Doesn't do anything no checkers yet.
-Plugin 'scrooloose/nerdtree'      " File explorer
-Plugin 'Shougo/neocomplete.vim'   " Auto completion
-Plugin 'Shougo/unite.vim'         " Fuzzy finding better than nerdtree?
-Plugin 'tpope/vim-dispatch'       " Git wrapper
-Plugin 'tpope/vim-fugitive'       " ???
-Plugin 'tpope/vim-surround'       " just use 'ct' for stuff
-Plugin 'tpope/vim-unimpaired'     " I ... don't know?
+Plugin 'bling/vim-airline'        " Lean & mean status/tabline for vim that's light as air.
+Plugin 'gmarik/Vundle.vim'        " Vundle is short for Vim bundle and is a Vim plugin manager.
+Plugin 'OmniSharp/omnisharp-vim'  " Plugin for Vim to provide IDE like abilities for C#.
+Plugin 'scrooloose/syntastic'     " Syntax checking plugin that runs files through external syntax checkers and displays any resulting errors.
+Plugin 'scrooloose/nerdtree'      " Allows you to explore your filesystem and to open files and directories.
+Plugin 'Shougo/neocomplete.vim'   " Provides keyword completion system by maintaining a cache of keywords in the current buffer.
+Plugin 'Shougo/unite.vim'         " Can search and display information from arbitrary sources like files, buffers, recently used files or registers.
+Plugin 'tpope/vim-dispatch'       " Asynchronous build and test dispatcher. (I don't know what this does)
+Plugin 'tpope/vim-fugitive'       " May very well be the best Git wrapper of all time.
+Plugin 'tpope/vim-surround'       " Quoting/parenthesizing made simple (just use 'ct' for stuff)
+Plugin 'tpope/vim-unimpaired'     " Pairs of handy bracket mappings.
 call vundle#end()
 
 filetype indent plugin on " Required.
