@@ -7,6 +7,7 @@ set guioptions-=m           " Remove menu bar
 set guioptions-=T           " Toolbar
 set guioptions-=r           " Remove right-hand scroll bar
 set guioptions-=L           " Remove left-hand scroll bar
+"set guifont=Andale_Mono:h8
 set guifont=Source_Code_Pro_Medium:h8:cANSI
 
 " Sets bg color to terminal

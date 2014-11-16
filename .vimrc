@@ -15,6 +15,7 @@ call vundle#begin(path)
 Plugin 'bling/vim-airline'        " Lean & mean status/tabline for vim that's light as air.
 Plugin 'gmarik/Vundle.vim'        " Vundle is short for Vim bundle and is a Vim plugin manager.
 Plugin 'OmniSharp/omnisharp-vim'  " Plugin for Vim to provide IDE like abilities for C#.
+Plugin 'Raimondi/delimitMate'     " Automatic closing of quotes, parenthesis, brackets, etc.
 Plugin 'scrooloose/syntastic'     " Syntax checking plugin that runs files through external syntax checkers and displays any resulting errors.
 Plugin 'scrooloose/nerdtree'      " Allows you to explore your filesystem and to open files and directories.
 Plugin 'Shougo/neocomplete.vim'   " Provides keyword completion system by maintaining a cache of keywords in the current buffer.
@@ -75,9 +76,24 @@ set undofile
 " Section: Mappings
 " -----------------
 
-" My leader is the default leader key: '\'
-nmap <leader>\ :nohl<CR>
-nmap <leader>sp :setlocal spell! spelllang=en_us<CR>
+"  nnoremap and nmap are not exactly the same
+"  if you do nmap a <esc>
+"  after that, `nmap s a` and `nnoremap s a` will do different things
+"  the first will map s to <esc> and the second will map s to the original function of a (insert left of cursor)
+
+" Default leader key: '\'
+let mapleader = "\<Space>"
+nmap <Leader><Leader> V
+nmap <Leader>\ :nohl<CR>
+nmap <Leader>sp :setlocal spell! spelllang=en_us<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>x :x<CR>
+"nnoremap <Leader>o :CtrlP<CR>
+
+" Automatically jump to end of text you pasted: I can paste multiple lines multiple times with simple ppppp.
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
 
 " Maps gg and G to fix nostartofline 
 nmap gg gg0
@@ -85,7 +101,6 @@ nmap G G$
 xmap gg gg0
 xmap G G$
 
-imap jj <Esc> 
 imap jk <Esc> 
 
 " Enables ctrl+c to sysclipboard in visual mode*need " +xterm-clipboard,vimgtk(Linux)
@@ -124,6 +139,11 @@ endif
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
+
+" DelimitMate
+
+let g:delimitMate_expand_cr=1   "???
+let g:delitMate_expand_space=0  "???
 
 " Nerd Tree
 
