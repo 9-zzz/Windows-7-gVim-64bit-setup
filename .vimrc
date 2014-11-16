@@ -74,9 +74,10 @@ set undofile
 " Section: Mappings
 " -----------------
 
-map <leader>sp :setlocal spell! spelllang=en_us<CR>
+" My leader is the default leader key: '\'
 nnoremap <leader>\ :nohl<CR>
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+map <leader>sp :setlocal spell! spelllang=en_us<CR>
 
 " Maps gg and G to fix nostartofline 
 vnoremap gg gg0
