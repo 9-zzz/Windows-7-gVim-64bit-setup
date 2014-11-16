@@ -1,0 +1,121 @@
+"The Man in Black fled across the desert...
+
+"for Windows
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
+:set guioptions-=r  "remove right-hand scroll bar
+:set guioptions-=L  "remove left-hand scroll bar
+
+set guifont=Consolas:h9
+"for Windows
+
+colorscheme molokai
+"set t_Co=256 sets terminal to use 256 colors apparently bad
+
+"Persistent undo
+set undodir=C:\Users\Shahan\Vim\undodir
+set undofile
+
+set nocompatible "keeps vim sane because distro interfference and sanely resets
+
+" Terminal
+set ttyfast "optimizes vim draw terminal
+set visualbell t_vb= "disables visual bell entirely
+
+" Unmaps
+nnoremap K <nop>
+nnoremap Q <nop>
+
+"maps gg and G to fix nostartofline 
+vnoremap gg gg0
+nnoremap gg gg0
+vnoremap G G$
+nnoremap G G$
+
+filetype indent plugin on "issues for gg=G for me
+syntax on "enable syntax highlighting
+set hidden "many reasons
+set wildmenu "better command-line completion
+set showcmd "show partial commands at bottom right
+set hlsearch
+set ignorecase      
+set smartcase
+set smartindent
+set backspace=indent,eol,start
+set autoindent
+set number
+set nostartofline "Stop certain movements from always going to the 1st character of a line
+set ruler "display the cursor position on the last line of the screen or in the status line
+set laststatus=2 "always display the status line, even if only one window is displayed
+set confirm "instead of failing a command because of unsaved changes
+set notimeout ttimeout ttimeoutlen=200 "quickly time out on keycodes not on mappings
+"set pastetoggle=<F3> "Use <F11> to toggle between 'paste' and 'nopaste'
+set shiftwidth=2 "indentation settings for using 2 spaces instead of tabs.
+set softtabstop=2 "do not change 'tabstop' from its default value of 8 with this setup.
+set expandtab
+set cmdheight=2 "set the command wndw hght to 2, to avoid to pressEnter> to continue.
+map Y y$
+inoremap jj <Esc> 
+inoremap jk <Esc> 
+"inoremap kj <Esc> 
+
+"(redraw screen) to also turn off search highlighting until the next search
+nnoremap <C-L> :nohl<CR><C-L> 
+
+"Spooky Skeletons boys and girls!
+:autocmd BufNewFile *.c 0r ~/.vim/skeleton.c | call cursor(6,0)
+:autocmd BufNewFile *.java 0r ~/.vim/skeleton.java | call cursor(1,14)
+:autocmd BufNewFile *.py 0r ~/.vim/skeleton.py| call cursor(2,0)
+
+"enables ctrl+c to sysclipboard in visual mode*need +xterm-clipboard,vimgtk
+map <C-c> "+y<CR>
+
+"when you typo
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
+" Unfudge my screen 'shift+u'
+nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
+
+"sets background to default(clear) must be at end of vimrc?
+:hi Normal ctermbg=None
+:hi LineNr ctermbg=None 
+
+"Numbers on the right bold current
+:hi CursorLineNr ctermfg=42 ctermbg=233 cterm=Bold
+:hi LineNr ctermfg=131
+
+"Bottom bar with showcmd StatisLn
+:hi StatusLine ctermbg=DarkCyan ctermfg=178
+
+"Visual mode and all mode highlighting
+:hi Visual term=standout cterm=inverse
+
+"Comments highlighting foreground
+:hi Comment ctermfg=42
+
+"Cursorline formerly crosshair
+set cursorline
+:hi CursorLine   cterm=Bold ctermbg=233 ctermfg=None guibg=DarkRed 
+":hi CursorColumn cterm=None ctermbg=233 ctermfg=None guibg=darkred guifg=white
+:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
+" Only do this part when compiled with support for autocommands REMEMBER CURSOR POSITION
+if has("autocmd")
+  augroup restoreCursor
+    autocmd!
+    " When editing a file, always jump to the last cursor position @!@!@!@
+    autocmd BufReadPost *
+          \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+          \   exe "normal! g'\"" |
+          \ endif
+  augroup END
+endif
+
+set mouse=a
+
+"Enable Pathogen
+execute pathogen#infect()
+"... and the Gunslinger followed -Stephen King
