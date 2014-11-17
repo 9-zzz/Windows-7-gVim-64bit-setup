@@ -1,1 +1,12 @@
-vimfiles/bundle/*
+vimfiles/bundle/delimitMate/*
+vimfiles/bundle/neocomplete.vim
+vimfiles/bundle/nerdtree/*
+vimfiles/bundle/omnisharp-vim/*
+vimfiles/bundle/syntastic/*
+vimfiles/bundle/unite.vim/*
+vimfiles/bundle/vim-airline/*
+vimfiles/bundle/vim-dispatch/*
+vimfiles/bundle/vim-eunuch/*
+vimfiles/bundle/vim-fugitive/*
+vimfiles/bundle/vim-surround/*
+vimfiles/bundle/vim-unimpaired/*
